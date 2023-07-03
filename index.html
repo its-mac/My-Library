@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>My-Library</title>
+    <style>
+        td,th{
+            white-space: nowrap;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">My-Library</a>
+            <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
+                data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavId">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="error-msg"></div>
+
+
+
+
+    <div class="container my-4">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="col">
+                    <h4>Add Book</h4>
+                    <form action="" id="addBookForm">
+                        <div class="form-group">
+                            <label for="bookName">Book Title</label>
+                            <input type="text" class="form-control" name="bookName" id="bookName"
+                                placeholder="Book title">
+                        </div>
+                        <div class="form-group">
+                            <label for="authorName">Author Name</label>
+                            <input type="text" class="form-control" name="author" id="authorName"
+                                placeholder="Author name">
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="category" id="programming"
+                                    value="Programming" checked>
+                                Programming
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="category" id="poetry" value="Poetry">
+                                Poetry
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="category" id="fiction"
+                                    value="Fiction">
+                                Fiction
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="category" id="novel" value="Novel">
+                                Novel
+                            </label>
+                        </div>
+                        <div class="form-group my-3">
+                            <button type="button" class="btn btn-primary" id="addBookBtn">Add Book</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col">
+                    <h4>Books we have</h4>
+                    <table class="table table-striped table-inverse table-responsive" id="bookWeHaveTable">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Title</th>
+                                <th>Author</th>
+                                <th>Category</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="tBody"></tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="col">
+                    <h4>Issue Book</h4>
+                    <form action="" id="issueBookForm">
+                        <div class="form-group">
+                            <label for="bookToIssue">Select Book</label>
+                            <select class="custom-select" name="bookToIssue" id="bookToIssue">
+
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="userName">User Name</label>
+                            <input type="text" class="form-control" name="user" id="userName" placeholder="User name">
+                        </div>
+
+                        <div class="form-group my-3">
+                            <button type="button" class="btn btn-primary" id="issueBookBtn">Issue Book</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col">
+                    <h4>Issued Books</h4>
+                    <table class="table table-striped table-inverse table-responsive" id="issuedBookTable">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Title</th>
+                                <th>Author</th>
+                                <th>Category</th>
+                                <th>Issued_To</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="tBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid bg-dark py-3 mt-5">
+        <div class="text-white text-center">Made with &#10084; by MacTechnical</div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script>
+        $('#navId a').click(e => {
+            e.preventDefault();
+            $(this).tab('show');
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+    <script>
+        function displayUi() {
+            let booksWeHave = JSON.parse(localStorage.getItem('books'));
+            let bookWeHaveTable = document.getElementById('bookWeHaveTable');
+            let issuedBookTable = document.getElementById('issuedBookTable');
+            let bookToIssue = document.getElementById('bookToIssue');
+            let booksWeHaveTbody = bookWeHaveTable.querySelector('.tBody');
+            let issuedBooksTbody = issuedBookTable.querySelector('.tBody');
+            let issuedBooks = JSON.parse(localStorage.getItem('issuedBooks'));
+            let booksWeHaveHtml = "";
+            let issuedBooksHtml = "";
+            let optionsHtml = `<option selected>Select one</option>`;
+            if (booksWeHave == null) {
+                booksWeHave = [{ title: 'Bang-e-Dira', author: 'Allama Iqbal', category: 'Poetry' },
+                { title: 'Learn Python', author: 'John Doe', category: 'Programming' },
+                { title: 'Harry Potter', author: 'Donald Trump &#128540;', category: 'Fiction' }];
+                localStorage.setItem('books', JSON.stringify(booksWeHave));
+                booksWeHave = JSON.parse(localStorage.getItem('books'));
+                booksWeHave.forEach(function (book, index) {
+                    booksWeHaveHtml += `
+            <tr>
+                <td>${book.title}</td>
+                <td>${book.author}</td>
+                <td>${book.category}</td>
+                <td><button onclick="deleteIt(${index})" class="btn btn-primary">Delete</button></td>
+            </tr>
+        `;
+                    optionsHtml += `
+        <option value="${index}">${book.title}</option>
+        `;
+                });
+            } else {
+                booksWeHave.forEach(function (book, index) {
+                    booksWeHaveHtml += `
+            <tr>
+                <td>${book.title}</td>
+                <td>${book.author}</td>
+                <td>${book.category}</td>
+                <td><button onclick="deleteIt(${index})" class="btn btn-primary">Delete</button></td>
+            </tr>
+        `;
+                    optionsHtml += `
+        <option value="${index}">${book.title}</option>
+        `;
+                });
+            }
+            booksWeHaveTbody.innerHTML = booksWeHaveHtml;
+            bookToIssue.innerHTML = optionsHtml;
+
+
+            if (issuedBooks == null) {
+                issuedBooks = [{ title: 'The Kite Runners', author: 'Emma Watson', category: 'Novel', user: 'Abu Bakar' }];
+                localStorage.setItem('issuedBooks', JSON.stringify(issuedBooks));
+                issuedBooks = JSON.parse(localStorage.getItem('issuedBooks'));
+                issuedBooks.forEach(function (book, index) {
+                    issuedBooksHtml += `
+            <tr>
+                <td>${book.title}</td>
+                <td>${book.author}</td>
+                <td>${book.category}</td>
+                <td>${book.user}</td>
+                <td><button onclick="returnBook(${index})" class="btn btn-primary">Return</button></td>
+            </tr>
+            `;
+                });
+            } else {
+                issuedBooks.forEach(function (book, index) {
+                    issuedBooksHtml += `
+            <tr>
+                <td>${book.title}</td>
+                <td>${book.author}</td>
+                <td>${book.category}</td>
+                <td>${book.user}</td>
+                <td><button onclick="returnBook(${index})" class="btn btn-primary">Return</button></td>
+            </tr>
+            `;
+                });
+            }
+            issuedBooksTbody.innerHTML = issuedBooksHtml;
+        }
+        // Function to add a new book 
+        function addBook() {
+            let booksWeHave = JSON.parse(localStorage.getItem('books'));
+            let addBookForm = document.getElementById('addBookForm');
+            let bookName = addBookForm.querySelector('#bookName').value;
+            let authorName = addBookForm.querySelector('#authorName').value;
+            if (bookName == "" || authorName == "") {
+                document.querySelector('.error-msg').innerHTML = `
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                <span class="sr-only">Close</span>
+            </button>
+            <strong>Error!</strong> Please add "Book Title" and "Author Name" first.</strong>
+        </div>
+    `;
+            } else {
+                let programming = addBookForm.querySelector('#programming');
+                let poetry = addBookForm.querySelector('#poetry');
+                let fiction = addBookForm.querySelector('#fiction');
+                let novel = addBookForm.querySelector('#novel');
+                let category;
+                if (fiction.checked) {
+                    category = fiction.value;
+                } else if (programming.checked) {
+                    category = programming.value;
+                } else if (novel.checked) {
+                    category = novel.value;
+                } else if (poetry.checked) {
+                    category = poetry.value;
+                }
+
+                let book = {
+                    title: bookName,
+                    author: authorName,
+                    category: category
+                }
+
+                if (booksWeHave == null) {
+                    booksWeHave = [book];
+                    localStorage.setItem('books', JSON.stringify(booksWeHave));
+                } else {
+                    booksWeHave.push(book);
+                    localStorage.setItem('books', JSON.stringify(booksWeHave));
+                }
+            }
+            let form = document.getElementById('addBookForm');
+            form.reset();
+            displayUi();
+        }
+
+
+
+
+        // Function to issue a book to any user
+        function issueBook() {
+            let booksWeHave = JSON.parse(localStorage.getItem('books'));
+            let issuedBooks = JSON.parse(localStorage.getItem('issuedBooks'));
+            let issueBookForm = document.getElementById('issueBookForm');
+            let bookName = issueBookForm.querySelector('#bookToIssue').value;
+            let userName = issueBookForm.querySelector('#userName').value;
+            if (bookName == "Select one" || userName == "") {
+                document.querySelector('.error-msg').innerHTML = `
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                <span class="sr-only">Close</span>
+            </button>
+            <strong>Error!</strong> Please select a Book to issue and "User Name" first.</strong>
+        </div>
+    `;
+            } else {
+                let book = {
+                    title: booksWeHave[bookName].title,
+                    author: booksWeHave[bookName].author,
+                    category: booksWeHave[bookName].category,
+                    user: userName,
+                }
+
+                if (issuedBooks == null) {
+                    issuedBooks = [book];
+                    localStorage.setItem('issuedBooks', JSON.stringify(issuedBooks));
+                    booksWeHave.splice(bookName, 1);
+                    localStorage.setItem('books', JSON.stringify(booksWeHave));
+                } else {
+                    issuedBooks.push(book);
+                    localStorage.setItem('issuedBooks', JSON.stringify(issuedBooks));
+                    booksWeHave.splice(bookName, 1);
+                    localStorage.setItem('books', JSON.stringify(booksWeHave));
+                }
+            }
+            let form = document.getElementById('issueBookForm');
+            form.reset();
+            displayUi();
+        }
+
+
+
+
+
+
+        // Function to delete a book 
+        function deleteIt(id) {
+            let booksWeHave = JSON.parse(localStorage.getItem('books'));
+            booksWeHave.splice(id, 1);
+            localStorage.setItem('books', JSON.stringify(booksWeHave));
+            displayUi();
+        }
+
+        // Function to return a book
+        function returnBook(id) {
+            let booksWeHave = JSON.parse(localStorage.getItem('books'));
+            let issuedBooks = JSON.parse(localStorage.getItem('issuedBooks'));
+            let book = {
+                title: issuedBooks[id].title,
+                author: issuedBooks[id].author,
+                category: issuedBooks[id].category
+            }
+            booksWeHave.push(book);
+            localStorage.setItem('books', JSON.stringify(booksWeHave));
+            issuedBooks.splice(id, 1);
+            localStorage.setItem('issuedBooks', JSON.stringify(issuedBooks));
+            displayUi();
+        }
+
+        displayUi();
+        let addBookBtn = document.getElementById('addBookBtn');
+        addBookBtn.addEventListener('click', addBook);
+
+        let issueBookBtn = document.getElementById('issueBookBtn');
+        issueBookBtn.addEventListener('click', issueBook);
+
+
+
+        if (window.innerWidth > 990) {
+            let addBookForm = document.getElementById('addBookForm');
+            let issueBookForm = document.getElementById('issueBookForm');
+
+            issueBookForm.style.height = addBookForm.scrollHeight + 12 + "px";
+        }
+    </script>
+
+</body>
+
+</html>
